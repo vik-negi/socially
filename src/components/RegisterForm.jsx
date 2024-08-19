@@ -35,7 +35,11 @@ export default function RegisterForm() {
           }))
         }
         name="fullName"
-        sx={{ width: "100%", margin: "1rem 0", bgcolor: "#fff" }}
+        sx={{
+          width: "100%",
+          margin: "1rem 0",
+          bgcolor: "#fff",
+        }}
         variant="outlined"
         label="Enter full name"
         type="text"
@@ -95,7 +99,7 @@ export default function RegisterForm() {
           width: "100%",
           margin: "1.5rem 0",
           padding: "12px 0",
-          borderRadius: "28px",
+          borderRadius: "12px",
         }}
         variant="contained"
         color="primary"

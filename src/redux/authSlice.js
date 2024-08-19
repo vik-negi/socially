@@ -16,6 +16,7 @@ export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async (userData) => {
     console.log(userData);
+    axiosInstance.defaults.headers.common["Content-Type"] = "application/json";
 
     const { data } = await axiosInstance.post("/auth/login", userData);
     console.log("api data", data);
@@ -26,6 +27,8 @@ export const loginUser = createAsyncThunk(
 export const registerUser = createAsyncThunk(
   "auth/registerUser",
   async (userData) => {
+    axiosInstance.defaults.headers.common["Content-Type"] =
+      "multipart/form-data";
     const { data } = await axiosInstance.post("/auth/register", userData);
     return data;
   }

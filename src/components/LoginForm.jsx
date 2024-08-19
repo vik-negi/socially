@@ -63,7 +63,7 @@ export default function LoginForm() {
             width: "100%",
             margin: "1.5rem 0",
             padding: "12px 0",
-            borderRadius: "28px",
+            borderRadius: "12px",
           }}
           variant="contained"
           color="primary"

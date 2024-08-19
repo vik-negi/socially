@@ -6,10 +6,12 @@ import RegisterForm from "../components/RegisterForm";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import logo from "../logo.png";
+import { useMediaQuery } from "@mui/material";
 
 export default function Login() {
   const [isLoginForm, setIsLoginForm] = useState(true);
   const theme = useTheme();
+  const isMobileDevice = useMediaQuery("(max-width:380px)");
   return (
     <Box
       display="flex"
@@ -18,26 +20,28 @@ export default function Login() {
       sx={{
         width: "100vw",
         height: "100vh",
-        bgcolor: "#f5f5f5",
+        paddingY: isLoginForm ? "0" : "5rem",
+        bgcolor: isMobileDevice ? "#fff" : "#f5f5f5",
       }}
     >
       <Box
-        borderRadius={theme.shape.borderRadius}
+        borderRadius={"12px"}
         sx={{
-          width: theme.breakpoints.values.sm,
+          width: "350px",
           bgcolor: "#fff",
-          padding: " 3rem 2rem",
-          boxShadow: "0px 0px 10px rgba(0,0,0,0.1)",
+          padding: " 2rem 2rem",
+          margin: isMobileDevice ? 0 : "2rem",
+          boxShadow: !isMobileDevice && "0px 0px 10px rgba(0,0,0,0.1)",
         }}
       >
         <Box textAlign="center" marginBottom="1rem">
-          <img style={{ width: "100px" }} src={logo} alt="Logo" />
+          <img style={{ width: "70px" }} src={logo} alt="Logo" />
+          {isLoginForm ? (
+            <Typography variant="h5">Sign in</Typography>
+          ) : (
+            <Typography variant="h5">Sign up</Typography>
+          )}
         </Box>
-        {isLoginForm ? (
-          <Typography variant="h5">Login to your account</Typography>
-        ) : (
-          <Typography variant="h5">Create a new account</Typography>
-        )}
         {isLoginForm ? <LoginForm /> : <RegisterForm />}
         {isLoginForm ? (
           <Box textAlign="center" margin=".5rem 0">
